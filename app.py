@@ -37,7 +37,7 @@ def main():
             label.config(text="Hello World")
 
     # Button that triggers the text toggle when clicked
-    button = tk.Button(window, text="Toggle", command=toggle_text)
+    button = tk.Button(window, text="Hello Reality", command=toggle_text)
     button.pack(pady=10)
 
     # Start the event loop — keeps the window open
