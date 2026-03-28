@@ -15,6 +15,12 @@ def create_icon():
     img.save(icon_path, format="ICO")
     return icon_path
 
+def get_toggled_text(current_text):
+    # Pure function — returns the next text value without needing a window
+    if current_text == "Hello World":
+        return "Hello Universe"
+    return "Hello World"
+
 def main():
     # Create the main application window
     window = tk.Tk()
@@ -31,10 +37,7 @@ def main():
 
     # Toggle the label text between "Hello World" and "Hello Universe"
     def toggle_text():
-        if label.cget("text") == "Hello World":
-            label.config(text="Hello Universe")
-        else:
-            label.config(text="Hello World")
+        label.config(text=get_toggled_text(label.cget("text")))
 
     # Button that triggers the text toggle when clicked
     button = tk.Button(window, text="Hello Reality", command=toggle_text)
