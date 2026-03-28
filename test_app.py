@@ -1,7 +1,6 @@
 import os
 import pytest
-import tkinter as tk
-from app import create_icon
+from app import create_icon, get_toggled_text
 
 
 def test_icon_file_is_created(tmp_path, monkeypatch):
@@ -22,24 +21,8 @@ def test_icon_file_is_ico(tmp_path, monkeypatch):
 
 
 def test_toggle_text():
-    # Verify the label toggles correctly between Hello World and Hello Universe
-    root = tk.Tk()
-    root.withdraw()  # Hide the window during testing
-
-    label = tk.Label(root, text="Hello World")
-
-    def toggle_text():
-        if label.cget("text") == "Hello World":
-            label.config(text="Hello Universe")
-        else:
-            label.config(text="Hello World")
-
     # First toggle: Hello World → Hello Universe
-    toggle_text()
-    assert label.cget("text") == "Hello Universe"
+    assert get_toggled_text("Hello World") == "Hello Universe"
 
     # Second toggle: Hello Universe → Hello World
-    toggle_text()
-    assert label.cget("text") == "Hello World"
-
-    root.destroy()
+    assert get_toggled_text("Hello Universe") == "Hello World"
