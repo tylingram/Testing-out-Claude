@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Generated at runtime by app.py
+app_icon.ico
+
+# Virtual environments
+venv/
+.env
+
+# IDE config
+.vscode/
+.idea/
