@@ -29,6 +29,17 @@ def main():
     label = tk.Label(window, text="Hello World", font=("Arial", 12))
     label.pack(expand=True)
 
+    # Toggle the label text between "Hello World" and "Hello Universe"
+    def toggle_text():
+        if label.cget("text") == "Hello World":
+            label.config(text="Hello Universe")
+        else:
+            label.config(text="Hello World")
+
+    # Button that triggers the text toggle when clicked
+    button = tk.Button(window, text="Toggle", command=toggle_text)
+    button.pack(pady=10)
+
     # Start the event loop — keeps the window open
     window.mainloop()
 
